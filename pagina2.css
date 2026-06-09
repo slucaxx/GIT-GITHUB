@@ -1,0 +1,90 @@
+/* ==========================================================================
+   🇧🇷 ULTRA CLEAN & MODERN BRAZIL THEME v2.0
+   ========================================================================== */
+
+:root {
+  /* Cores Diretas e Vibrantes */
+  --verde-brasil: #009b3a;
+  --amarelo-hexa: #ffcc00;
+  --azul-selecao: #002776;
+  --fundo-limpo: #f8fafc;
+  --card-branco: #ffffff;
+  --texto-escuro: #1e293b;
+  --texto-suave: #64748b;
+  
+  --shadow-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* RESET COMPLETO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.pagina2 {
+  background-color: var(--fundo-limpo);
+  color: var(--texto-escuro);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR - ESTILO CLEAN COMPANHIA */
+.menu.navegaçao {
+  background-color: var(--card-branco);
+  padding: 20px 40px;
+  display: flex;
+  gap: 30px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--azul-selecao); /* Detalhe discreto no topo */
+}
+
+.menu.navegaçao a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+/* Hover nos links */
+.menu.navegaçao a:hover {
+  color: var(--verde-brasil);
+}
+
+/* BLOCO DE CONTEÚDO PRINCIPAL (CARD CLEAN) */
+.conteudo.principal {
+  flex: 1;
+  width: 90%;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: var(--card-branco);
+  border-radius: 16px;
+  box-shadow: var(--shadow-suave);
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+/* Detalhe lateral em degradê verde/amarelo */
+.conteudo.principal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: linear-gradient(to bottom, var(--verde-brasil), var(--amarelo-hexa));
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+/* TÍTULO IMPACTANTE */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--azul);}
