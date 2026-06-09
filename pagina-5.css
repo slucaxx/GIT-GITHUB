@@ -1,0 +1,128 @@
+/* ==========================================================================
+   VARIÁVEIS DE CORES E FONTES (Estilo Futurista/Copa 2026)
+   ========================================================================== */
+:root {
+    --verde-principal: #009B3A;
+    --verde-neon: #00FF66;
+    --amarelo-hexa: #FFDC00;
+    --azul-profundo: #020617; /* Um fundo quase preto, bem moderno */
+    --card-fundo: rgba(255, 255, 255, 0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, rgba(0, 255, 102, 0.1) 0%, var(--azul-profundo) 100%);
+    background-color: var(--azul-profundo);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================================================
+   MENU DE NAVEGAÇÃO REESTILIZADO (Com 5 links agora!)
+   ========================================================================== */
+.menu-navegacao {
+    width: 100%;
+    background-color: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Garante que se a tela for pequena, os botões quebram linha */
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-navegacao a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    color: #94a3b8;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Destaque para a página atual (Rumo a 2026) */
+.menu-navegacao a[href="pagina-5.html"] {
+    background: rgba(0, 255, 102, 0.1);
+    border-color: var(--verde-neon);
+    color: var(--verde-neon);
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
+}
+
+.menu-navegacao a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (A Missão pelo Hexa)
+   ========================================================================== */
+.conteudo-principal {
+    max-width: 800px;
+    margin: 4rem 1.5rem;
+    padding: 3rem 2.5rem;
+    background: var(--card-fundo);
+    border: 1px solid rgba(0, 255, 102, 0.15); /* Borda sutil verde neon */
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    position: relative;
+}
+
+
+/* Título 2026 */
+.conteudo-principal h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Efeito de degradê no texto */
+    background: linear-gradient(to right, #ffffff, var(--amarelo-hexa));
+    
+    /* Mix de compatibilidade (Prefixo + Padrão) */
+    -webkit-background-clip: text; /* Suporte para Chrome, Safari e Edge antigos */
+    background-clip: text;         /* Propriedade padrão oficial (Firefox e navegadores modernos) */
+    
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+}
+
+/* O parágrafo principal (A grande história da Copa de 2026) */
+.conteudo-principal p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #e2e8f0;
+    text-align: justify; /* Deixa o blocão de texto alinhado e elegante */
+    text-justify: inter-word;
+}
+
+/* Deixa a primeira letra do texto maior (Estilo portal de notícias) */
+.conteudo-principal p::first-letter {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--verde-neon);
+    float: left;
+    margin-right: 8px;
+    line-height: 1;
+}
+
+/* Remove o espaço exagerado da tag <br> antiga do HTML */
+br {
+    display: none;
+}
