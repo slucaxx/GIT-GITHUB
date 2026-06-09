@@ -1,0 +1,138 @@
+/* ==========================================================================
+   🇧🇷 FRONT-END DESIGN SYSTEM - PÁGINA 3 (ARTILHEIRO)
+   ========================================================================== */
+
+:root {
+  /* Cores padrão do projeto */
+  --brand-green: #009b3a;
+  --brand-yellow: #ffcc00;
+  --brand-blue: #002776;
+  --bg-light: #f4f6f9;
+  --surface-white: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  
+  /* Efeitos e Grid */
+  --radius-md: 12px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --transition-fast: all 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.pagina3 {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   COMPONENT: NAVIGATION BAR
+   ========================================================================== */
+.menu.navegaçao {
+  background-color: var(--surface-white);
+  padding: 0 30px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  height: 65px;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.menu.navegaçao a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+/* Efeito Hover nos links não ativos */
+.menu.navegaçao a:hover {
+  color: var(--brand-blue);
+  background-color: #f1f5f9;
+}
+
+/* Tratamento de Front-end para a Página Atual (Active State) */
+.menu.navegaçao a[href="pagina3.html"] {
+  background-color: var(--brand-blue);
+  color: var(--surface-white);
+}
+
+/* ==========================================================================
+   COMPONENT: STATISTIC CARD (Main Content)
+   ========================================================================== */
+.conteudo.principal {
+  flex: 1;
+  width: 90%;
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: var(--surface-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #e2e8f0;
+  
+  /* Layout interno centralizado para destacar o dado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Pequena tag decorativa no topo do card */
+.conteudo.principal::before {
+  content: 'FATO HISTÓRICO';
+  position: absolute;
+  top: -12px;
+  background-color: var(--brand-green);
+  color: var(--surface-white);
+  padding: 4px 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 155, 58, 0.3);
+}
+
+/* TÍTULO PRINCIPAL */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* PARÁGRAFO DE DESTAQUE */
+p {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+/* Efeito extra de front-end: Destacar o número de gols */
+p strong, p span {
+  color: var(--brand-green);
+  font-weight: 800;
+}
