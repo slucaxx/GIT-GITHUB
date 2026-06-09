@@ -1,25 +1,22 @@
 /* ==========================================================================
-   🇧🇷 FRONT-END DESIGN SYSTEM - PÁGINA 3 (ARTILHEIRO)
+   🏆 WORLD CUP PREMIUM THEME - PÁGINA 3 (ARTILHEIRO)
    ========================================================================== */
 
 :root {
-  /* Cores padrão do projeto */
-  --brand-green: #009b3a;
-  --brand-yellow: #ffcc00;
-  --brand-blue: #002776;
-  --bg-light: #f4f6f9;
-  --surface-white: #ffffff;
-  --text-dark: #1e293b;
-  --text-muted: #64748b;
+  /* Cores da Copa e da Seleção */
+  --hexa-gold: #ffc107;         /* Ouro da Taça */
+  --hexa-gold-hover: #ffca2c;
+  --brazil-green: #009b3a;      /* Verde bandeira clássico */
+  --stadium-green: #0b2216;     /* Verde escuro para o fundo (estilo estádio à noite) */
+  --surface-card: #142e20;      /* Fundo do card (gramado escuro) */
+  --white: #ffffff;
+  --text-muted: #a3b899;        /* Verde acinzentado para textos secundários */
   
-  /* Efeitos e Grid */
-  --radius-md: 12px;
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --transition-fast: all 0.2s ease-in-out;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
-   RESET & BASE STYLES
+   RESET & ESTILO DO ESTÁDIO (Global)
    ========================================================================== */
 * {
   margin: 0;
@@ -28,111 +25,122 @@
 }
 
 body.pagina3 {
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--stadium-green);
+  color: var(--white);
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
+  /* Textura geométrica no fundo simulando linhas de um campo de futebol moderno */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(rgba(0, 155, 58, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 155, 58, 0.05) 2px, transparent 2px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
 }
 
 /* ==========================================================================
-   COMPONENT: NAVIGATION BAR
+   NAVBAR: MENU DE NAVEGAÇÃO
    ========================================================================== */
 .menu.navegaçao {
-  background-color: var(--surface-white);
-  padding: 0 30px;
+  background-color: rgba(20, 46, 32, 0.8);
+  backdrop-filter: blur(10px); /* Efeito de vidro fosco moderno */
+  padding: 0 40px;
   display: flex;
   gap: 15px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  height: 65px;
+  height: 70px;
   align-items: center;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 2px solid rgba(0, 155, 58, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .menu.navegaçao a {
   color: var(--text-muted);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-weight: 700;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: var(--transition-fast);
+  letter-spacing: 1.5px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
 }
 
-/* Efeito Hover nos links não ativos */
+/* Hover nos links */
 .menu.navegaçao a:hover {
-  color: var(--brand-blue);
-  background-color: #f1f5f9;
+  color: var(--white);
+  background-color: rgba(0, 155, 58, 0.2);
 }
 
-/* Tratamento de Front-end para a Página Atual (Active State) */
+/* Destaque para a página ativa (Estilo Botão de Ouro) */
 .menu.navegaçao a[href="pagina3.html"] {
-  background-color: var(--brand-blue);
-  color: var(--surface-white);
+  background: linear-gradient(135deg, var(--hexa-gold) 0%, #d39e00 100%);
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
 }
 
 /* ==========================================================================
-   COMPONENT: STATISTIC CARD (Main Content)
+   MAIN CONTENT: CARD DA TAÇA DO MUNDO
    ========================================================================== */
 .conteudo.principal {
   flex: 1;
   width: 90%;
-  max-width: 650px;
-  margin: 50px auto;
-  padding: 40px;
-  background-color: var(--surface-white);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid #e2e8f0;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 50px 40px;
+  background-color: var(--surface-card);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 223, 0, 0.15); /* Borda dourada sutil */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   
-  /* Layout interno centralizado para destacar o dado */
+  /* Layout centralizado e imponente */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* Pequena tag decorativa no topo do card */
+/* Detalhe de iluminação no topo do card (Efeito Refletor de Estádio) */
 .conteudo.principal::before {
-  content: 'FATO HISTÓRICO';
+  content: '';
   position: absolute;
-  top: -12px;
-  background-color: var(--brand-green);
-  color: var(--surface-white);
-  padding: 4px 14px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 155, 58, 0.3);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 223, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-/* TÍTULO PRINCIPAL */
+/* TÍTULO DA COPA (Estilo Placar Eletrônico) */
 h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--brand-blue);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
   text-transform: uppercase;
-  letter-spacing: -0.5px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  line-height: 1.2;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  
+  /* Sombra verde e amarela para dar tridimensionalidade */
+  text-shadow: 3px 3px 0px var(--brazil-green);
 }
 
-/* PARÁGRAFO DE DESTAQUE */
+/* O PARÁGRAFO DO RECORDISTA */
 p {
-  color: var(--text-dark);
-  font-size: 1.2rem;
-  line-height: 1.7;
-  max-width: 500px;
+  color: #e2e8f0;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-weight: 500;
 }
 
-/* Efeito extra de front-end: Destacar o número de gols */
-p strong, p span {
-  color: var(--brand-green);
-  font-weight: 800;
+/* Seleção de texto temática */
+::selection {
+  background-color: var(--hexa-gold);
+  color: #000000;
 }
