@@ -1,0 +1,122 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS (DESIGN SYSTEM)
+   ========================================================================== */
+:root {
+    --verde: #009B3A;
+    --amarelo: #FFDC00;
+    --azul: #002776;
+    --azul-neon: #00D2FF;
+    --fundo-escuro: #060b19;
+    --card-fundo: rgba(255, 255, 255, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, rgba(0, 39, 118, 0.2) 0%, var(--fundo-escuro) 80%);
+    background-color: var(--fundo-escuro);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   MENU DE NAVEGAÇÃO (Mantendo o padrão profissional)
+   ========================================================================== */
+.menu-navegacao {
+    width: 100%;
+    background-color: rgba(6, 11, 25, 0.9);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-navegacao a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    color: #a0aec0;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Destacando a página atual (HISTORIA) */
+.menu-navegacao a[href="pagina-4.html"] {
+    background: rgba(255, 220, 0, 0.15);
+    border-color: var(--amarelo);
+    color: var(--amarelo);
+}
+
+.menu-navegacao a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (Linha do Tempo de Títulos)
+   ========================================================================== */
+.conteudo-principal {
+    max-width: 850px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+/* Títulos */
+.conteudo-principal h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    line-height: 1.3;
+}
+
+.destaque-hexa {
+    color: var(--amarelo);
+    font-size: 2.6rem;
+    display: block;
+    margin-top: 0.5rem;
+    text-shadow: 0 0 20px rgba(255, 220, 0, 0.3);
+}
+
+.conteudo-principal h2 {
+    color: var(--azul-neon);
+    font-size: 1.8rem;
+    margin: 4rem 0 2rem 0;
+    border-left: 5px solid var(--azul-neon);
+    padding-left: 10px;
+}
+
+/* Estilização dos Parágrafos (Transformados em Cards de História) */
+.conteudo-principal p {
+    background: var(--card-fundo);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid var(--verde); /* Detalhe em verde na lateral */
+    padding: 1.2rem 1.8rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem; /* Substitui a necessidade de tantas tags <br> */
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Efeito de destaque ao passar o mouse na história do título */
+.conteudo-principal p:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px); /* Dá uma leve esquivada para a direita */
+    border-left-color: var(--amarelo); /* O detalhe muda para amarelo */
+}
+
+/* Ajuste específico para as tags <br> antigas não espaçarem demais */
+br {
+    display: none; 
+}
