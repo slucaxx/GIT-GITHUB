@@ -1,21 +1,30 @@
 /* ==========================================================================
-   🇧🇷 ULTRA CLEAN & MODERN BRAZIL THEME v2.0
+   🏆 FIFA WORLD CUP 2026 - PREMIUM FRONT-END DESIGN
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
 :root {
-  /* Cores Diretas e Vibrantes */
-  --verde-brasil: #009b3a;
-  --amarelo-hexa: #ffcc00;
-  --azul-selecao: #002776;
-  --fundo-limpo: #f8fafc;
-  --card-branco: #ffffff;
-  --texto-escuro: #1e293b;
-  --texto-suave: #64748b;
+  /* Cores Oficiais e Vibrantes */
+  --gold-cup: #ffcc00;          /* Ouro da Taça FIFA */
+  --brazil-green: #009b3a;      /* Verde Canarinho */
+  --stadium-blue: #002776;      /* Azul Royal da Seleção */
   
-  --shadow-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  /* Sistema de Cores Dark Stadium */
+  --bg-stadium: #060b11;        /* Azul ultra escuro (Noite de Jogo) */
+  --surface-card: #0e1724;      /* Fundo do painel principal */
+  --text-white: #ffffff;
+  --text-muted: #6b7c96;        /* Cinza azulado para leitura suave */
+  
+  /* Efeitos de Interface */
+  --glass-effect: rgba(14, 23, 36, 0.75);
+  --transition-turbo: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-radius: 20px;
 }
 
-/* RESET COMPLETO */
+/* ==========================================================================
+   RESET & CONFIGURAÇÕES BASE
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -23,68 +32,125 @@
 }
 
 body.pagina2 {
-  background-color: var(--fundo-limpo);
-  color: var(--texto-escuro);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-stadium);
+  color: var(--text-white);
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  
+  /* Efeito de luz de fundo (Refletores do Estádio) */
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(0, 155, 58, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 120%, rgba(0, 39, 118, 0.2) 0%, transparent 60%);
 }
 
-/* NAVBAR - ESTILO CLEAN COMPANHIA */
+/* ==========================================================================
+   NAVBAR: MENU DE NAVEGAÇÃO FLUTUANTE
+   ========================================================================== */
 .menu.navegaçao {
-  background-color: var(--card-branco);
-  padding: 20px 40px;
+  background-color: var(--glass-effect);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 40px;
   display: flex;
-  gap: 30px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-  border-top: 4px solid var(--azul-selecao); /* Detalhe discreto no topo */
+  gap: 12px;
+  height: 75px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .menu.navegaçao a {
-  color: var(--texto-suave);
+  color: var(--text-white);
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 1.5px;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  transition: color 0.2s ease;
+  letter-spacing: 1.5px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: var(--transition-turbo);
 }
 
-/* Hover nos links */
+/* Hover nos links não-ativos */
 .menu.navegaçao a:hover {
-  color: var(--verde-brasil);
+  color: var(--gold-cup);
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
-/* BLOCO DE CONTEÚDO PRINCIPAL (CARD CLEAN) */
+/* Estado Ativo: Detalhe inteligente de Front-End focado no seu link da página 2 */
+.menu.navegaçao a[href="pagina2.html"] {
+  background: linear-gradient(135deg, var(--gold-cup) 0%, #d8ac00 100%);
+  color: #000000;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.35);
+}
+
+/* ==========================================================================
+   MAIN CONTENT: CARD COLECIONÁVEL DA SELEÇÃO
+   ========================================================================== */
 .conteudo.principal {
   flex: 1;
   width: 90%;
-  max-width: 700px;
+  max-width: 650px;
   margin: 60px auto;
-  padding: 40px;
-  background-color: var(--card-branco);
-  border-radius: 16px;
-  box-shadow: var(--shadow-suave);
-  border: 1px solid #e2e8f0;
+  padding: 50px 40px;
+  background-color: var(--surface-card);
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(0, 155, 58, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  
+  /* Organização interna */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   position: relative;
 }
 
-/* Detalhe lateral em degradê verde/amarelo */
-.conteudo.principal::before {
+/* Detalhe superior: Linhas da bandeira estilizadas */
+.conteudo.principal::after {
   content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  width: 6px;
-  background: linear-gradient(to bottom, var(--verde-brasil), var(--amarelo-hexa));
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--brazil-green), var(--gold-cup), var(--stadium-blue));
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
 }
 
-/* TÍTULO IMPACTANTE */
+/* TÍTULO EM CAIXA ALTA (Grito de Gol) */
 h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--azul);}
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  
+  /* Efeito de relevo em 3D usando as cores do Brasil */
+  text-shadow: 3px 3px 0px var(--brazil-green);
+}
+
+/* TEXTO / PARÁGRAFO HISTÓRICO */
+p {
+  color: #e2e8f0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 500;
+  max-width: 520px;
+}
+
+/* Customização fina: quando o usuário seleciona um texto */
+::selection {
+  background-color: var(--brazil-green);
+  color: var(--gold-cup);
+}
