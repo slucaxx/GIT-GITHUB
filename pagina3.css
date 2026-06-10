@@ -44,43 +44,55 @@ body.pagina3 {
    NAVBAR: MENU DE NAVEGAÇÃO
    ========================================================================== */
 .menu.navegaçao {
-  background-color: rgba(20, 46, 32, 0.8);
-  backdrop-filter: blur(10px); /* Efeito de vidro fosco moderno */
-  padding: 0 40px;
+  width: 100%;                  /* Força a barra a ocupar a tela toda */
+  max-width: 100vw;
+  background: linear-gradient(to bottom, rgba(11, 34, 22, 0.95), rgba(20, 46, 32, 0.85));
+  backdrop-filter: blur(12px);  /* Efeito vidro premium */
+  padding: 0 20px;
   display: flex;
-  gap: 15px;
-  height: 70px;
-  align-items: center;
-  border-bottom: 2px solid rgba(0, 155, 58, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  justify-content: center;      /* Centraliza o bloco de links horizontalmente */
+  align-items: center;          /* Centraliza verticalmente */
+  height: 75px;
+  border-bottom: 2px solid rgba(255, 193, 7, 0.2); /* Linha dourada sutil na base */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: sticky;             /* Deixa o menu fixo no topo ao rolar a página */
+  top: 0;
+  z-index: 1000;
 }
 
 .menu.navegaçao a {
-  color: var(--text-muted);
+  color: #c3d4bc;               /* Cor de texto mais viva e visível */
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.95rem;           /* Aumentei a fonte para ficar mais bonito e legível */
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 10px 20px;
-  border-radius: 50px;
+  letter-spacing: 1px;
+  padding: 10px 24px;           /* Mais espaço interno nos botões */
+  border-radius: 8px;           /* Canto arredondado moderno (estilo cápsula quadrada) */
   transition: var(--transition-smooth);
   border: 1px solid transparent;
 }
 
-/* Hover nos links */
+/* Hover nos links (Quando passa o mouse) */
 .menu.navegaçao a:hover {
   color: var(--white);
-  background-color: rgba(0, 155, 58, 0.2);
+  background-color: rgba(0, 155, 58, 0.3); /* Verde oliva brilhante */
+  border-color: rgba(255, 193, 7, 0.3);
+  transform: translateY(-2px);  /* Leve pulinho para interagir com o usuário */
 }
 
-/* Destaque para a página ativa (Estilo Botão de Ouro) */
+/* Destaque para a página ativa (O botão de ouro da página atual) */
 .menu.navegaçao a[href="pagina3.html"] {
-  background: linear-gradient(135deg, var(--hexa-gold) 0%, #d39e00 100%);
-  color: #000000;
-  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+  background: linear-gradient(135deg, var(--hexa-gold) 0%, #cc9a06 100%);
+  color: #05140b;               /* Contraste escuro excelente sobre o dourado */
+  border-color: var(--hexa-gold);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.4); /* Brilho neon da taça */
 }
 
+/* Pequena animação ao clicar */
+.menu.navegaçao a:active {
+  transform: translateY(1px);
+}
 /* ==========================================================================
    MAIN CONTENT: CARD DA TAÇA DO MUNDO
    ========================================================================== */
